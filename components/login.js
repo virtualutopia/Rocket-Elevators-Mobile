@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, TextInput, Modal, Button } from 'react-native';
 
-const StartUpScreen = props => {
+// Login Screen is handled here
+const LoginScreen = props => {
+   const [enteredEmail, setEnteredEmail] = useState('');
+   const [enteredPassword, setEnteredPassword] = useState('');
+
    return (
       <Modal visible={props.visible} animationType='slide'>
          <View style={styles.container}>
@@ -10,27 +14,22 @@ const StartUpScreen = props => {
                <TextInput
                   style={styles.input}
                   placeholder="Enter your Email"
-                  // onChangeText={text => setState(prevState => {
-                  //    return { ...prevState, s: text }
-                  // })}
-                  // onSubmitEditing={search}
-                  // value={state.s} 
-                  />
+                  
+                  onChangeText={(text) => setEnteredEmail(text.toLowerCase())}
+                   />
                <TextInput
                   style={styles.input}
                   placeholder="Enter your password"
-                  // onChangeText={text => setPass(prevState => {
-                  //    return { ...prevState, s: text }
-                  // })} 
-                  />
-               <Button title='LOG IN' onPress={props.login} />
+
+                   />
+               <Button title='LOG IN' onPress={props.login.bind(this, enteredEmail)} />
             </View>
          </View>
       </Modal>
    )
 };
 
-export default StartUpScreen;
+export default LoginScreen;
 
 const styles = StyleSheet.create({
    container: {
