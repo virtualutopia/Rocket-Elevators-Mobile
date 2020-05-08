@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, TextInput, Modal, Button } from 'react-native';
 
+
+
+// require('react-dom');
+// window.React2 = require('react');
+// console.log(window.React1 === window.React2);
+
+
 // Login Screen is handled here
 const LoginScreen = props => {
    const [enteredEmail, setEnteredEmail] = useState('');
