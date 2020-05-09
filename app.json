@@ -2,6 +2,7 @@
   "expo": {
     "name": "Rocket-Elevators-Mobile",
     "slug": "Rocket-Elevators-Mobile",
+    "description": "This app is developed to facilitate access to the latest information about the elevators of Rocket Elevators Co. for the employees ",
     "platforms": [
       "ios",
       "android",
@@ -9,7 +10,7 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
