@@ -49,10 +49,6 @@ export default function App() {
     id => {
       const newSelected = new Map(selected);
       newSelected.set(id, !selected.get(id));
-      console.log("@@@@@@@@@@ @@@@@@@@@@ @@@@@@@@@@");
-      console.log("@@@@@@@@@@ selected.get(id): @@@@@@@@@@" + id);
-      console.log("@@@@@@@@@@ @@@@@@@@@@ @@@@@@@@@@");
-
       setSelected(newSelected);
       openStatusChangeViewWithId(id);
     },
@@ -144,19 +140,25 @@ export default function App() {
       <Modal visible={isLoginMode} animationType='slide'>
         <View style={styles.loginContainer}>
           <Image style={styles.logo} source={require('./assets/R2.png')} />
-          <View >
+          <View style={styles.elevatorButtonContainer}>
             <TextInput
               style={styles.input}
               placeholder="Enter your Email"
 
               onChangeText={(text) => setEnteredEmail(text.toLowerCase())}
             />
-            <TextInput
+            {/* <TextInput
               style={styles.input}
               placeholder="Enter your password"
 
-            />
-            <Button title='LOG IN' onPress={clickhandler} />
+            /> */}
+            {/* <Button title='LOG IN' onPress={clickhandler} /> */}
+            <TouchableOpacity
+              onPress={clickhandler}
+              style={[styles.Button, { backgroundColor: colors.REblue }, (Platform.OS === 'ios') ? styles.ios : styles.android]}>
+              <Text style={[styles.textButton, (Platform.OS === 'ios') ? styles.textios : styles.textAndroid]}>
+                LOGIN</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </Modal>
@@ -187,7 +189,7 @@ export default function App() {
       </SafeAreaView>
 
       <View style={styles.homeButtonContainer}>
-        <Button title="SELECT" color='#28a745' onPress={() => setIsElevtorMode(true)} />
+        {/* <Button title="SELECT" color='#28a745' onPress={() => setIsElevtorMode(true)} /> */}
         <Button title="LOG OUT" color='#dc3545' onPress={LogoutHandler} />
       </View>
     </View>
@@ -256,6 +258,49 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 10,
     borderRadius: 10
+  },
+  Button: {
+    borderRadius: 10,
+    width: '80%',
+    height: '20%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  ButtonHome: {
+    borderRadius: 10,
+    width: 250,
+    height: '25%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.REred
+  },
+  ios: {
+    marginTop: 5,
+  },
+  android: {
+    marginTop: 5,
+  },
+  textButton: {
+    fontSize: 20,
+    color: 'white',
+  },
+  textAndroid: {
+    fontWeight: '600',
+  },
+  textios: {
+    fontWeight: '300',
+  },
+  elevatorButtonContainer: {
+    // flex: 3,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '80%',
+    color: '#0b044a',
+    fontSize: 300,
+    fontWeight: "bold",
+    justifyContent: 'flex-end',
+    marginBottom: 40,
+
   },
 
 });
