@@ -3,6 +3,8 @@
 # Rocket-Elevators-Mobile
 
 This Applicaiton is developed using React Native platform and is functional on both Android and ios systems.
+With EXPO Client one may run the app on both OSs.
+Application link: https://expo.io/@anoosheh/Rocket-Elevators-Mobile
 to login you need one of the registered Emails. you may use this email to enter the app:
              admin@hotmail.com
 you may get a list of all employee from the API given in next section.
